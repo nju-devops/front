@@ -1,13 +1,8 @@
 import React from 'react'
-import { Input, Select, Row, Col, Icon, Form, Button, Table } from 'antd'
-import { ke_attr } from '../utils/ChAndEn.js'
-import { fetchAopInfo, fetchAopNodes } from '../services/AopService'
-import { keColumns } from '../pages/search/Search'
+import { Form, Table } from 'antd'
 import './AopInfo.less'
 import './KeAoInfo.less'
-import {fetchToxInfo,fetchKEandAO} from '../services/SingleForcast'
-// import echarts from 'echarts'
-const { Option, OptGroup } = Select
+import {fetchKEandAO} from '../services/SingleForcast'
 class SingleForcast extends React.Component<any,any> {
     constructor(props) {
         super(props)
@@ -187,7 +182,7 @@ class SingleForcast extends React.Component<any,any> {
         const bioassay = query.bioassay;
         const effect=query.effect;
         return( <div className="keInfoCon">
-            <h3 style={{ marginBottom: '18px' }}>Ke信息</h3>
+            <h3 style={{ marginBottom: '18px' }}>KE信息</h3>
             <div className="item">
                     <div className="attrLabel">Bioaasay:</div>
                     <div className="attrValue">{bioassay}</div>

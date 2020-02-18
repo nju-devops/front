@@ -1,10 +1,9 @@
 import React from 'react'
-import { Input, Select, Row, Col, Icon, Form, Button, Table } from 'antd'
+import { Table } from 'antd'
 import { ke_attr } from '../utils/ChAndEn.js'
 import { fetchEventRelativeAops, fetchEventBioassaysInfo, fetchEventInfo } from '../services/EventService.js'
 import { keColumns } from '../pages/search/Search'
 import './EventInfo.less'
-const { Option, OptGroup } = Select
 class EventInfo extends React.Component<any, any> {
     constructor(props) {
         super(props)
@@ -94,7 +93,8 @@ class EventInfo extends React.Component<any, any> {
                 dataIndex: 'effect',
             }
         ]
-        return (<div className="biosCon">
+        return (
+        <div className="biosCon">
             <h3 style={{ marginBottom: '18px' }}>相关的生物检测信息</h3>
             <Table dataSource={bioassays}
                 loading={this.state.bioassaysLoading}
@@ -104,6 +104,7 @@ class EventInfo extends React.Component<any, any> {
         </div>
         )
     }
+    //渲染相关的aop列表，并可跳转
     renderRelativeAops() {
         const { relativeAops } = this.state
         let dataSource = []
