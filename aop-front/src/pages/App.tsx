@@ -1,8 +1,12 @@
 import React from "react";
 import {
-  BrowserRouter as Router, IndexRoute, Switch,
+  BrowserRouter as Router, IndexRoute,
+  Switch,
   Route,
+  Link,
   withRouter,
+  Redirect
+
 } from "react-router-dom";
 import { Menu,Icon } from 'antd'
 import Search from './search/Search'
@@ -16,6 +20,7 @@ import KeAoInfo from "./KeAoInfo";
 import {EnvironmentPlugin} from "webpack";
 import Environment from "./Environment";
 import AopList from "./AopList";
+import AopChemicalInfo from "./AopChemicalInfo";
 const { SubMenu } = Menu
 @withRouter
 
@@ -48,7 +53,7 @@ class App extends React.Component {
             <Menu.Item key="aops">AOP</Menu.Item>
           </SubMenu>
           <Menu.Item key="singleForcast" style={{height: 60}}>
-            化学品毒性预测
+            单一毒性预测
           </Menu.Item>
           <Menu.Item key="environment" style={{height: 60}}>
             环境诊断
@@ -58,7 +63,7 @@ class App extends React.Component {
             renders the first one that matches the current URL. */}
         <div style={{ backgroundColor: 'rgb(244,245,246)',height:'100vh', overflow:'scroll' }} >
           <Switch>
-            <Route path="/" exact component={Dashboard}/>
+            {/* <Route path="/"  component={Dashboard}/> */}
             {/* <IndexRoute component={Search}/> */}
             <Route path="/edges" component={EdgeSearch} />
             <Route path="/events" component={Search} />
@@ -69,6 +74,7 @@ class App extends React.Component {
             <Route path="/keao" component={KeAoInfo} />
             <Route path="/environment" component={Environment} />
             <Route path="/aopList/:aoId" component={AopList} />
+            <Route path="/aopChemicalInfo" component={AopChemicalInfo} />
           </Switch>
         </div>
       </div>
